@@ -1,5 +1,5 @@
-@import './base';
 @import './variables';
+@import './base';
 @import './typography';
 @import './animations';
 
@@ -8,6 +8,7 @@
 @import './components/wcard';
 
 @import './layout/header';
+@import './layout/banner';
 @import './layout/services';
 @import './layout/works';
 @import './layout/blog';

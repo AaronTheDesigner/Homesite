@@ -1,38 +1,42 @@
-header {
-    height: 100vh;
+.hero {
+
     width: 100%;
+    height: 100vh;
+    color: $color-grey-1;
+    background-color: $color-blue-3;
 
     display: grid;
-    grid-template-rows: 6rem 1fr 6rem;
-    grid-template-columns: 6rem 4rem 1fr 4rem 6rem;
+    grid-template-rows: 4rem 1fr 4rem;
+    grid-template-columns: 6rem 1fr 6rem;
 
     .login {
         grid-row: 1 / 2;
-        grid-column: 5 / 6;
-        
+        grid-column: 3 / 4;
+
+        position: relative;
+        font-size: 1.5rem;  
+
     }
+
+    
 
     .title {
         grid-row: 2 / 3;
-        grid-column: 3 / 4;
-    
-    }
-
-    .share {
-        grid-row: 2 / 3;
-        grid-column: 2 / 3;
+        grid-column: 1 / 4;
         
-    }
+        .name {
+            width: 100%;
+            
 
-    .skills {
-        grid-row: 2 / 3;
-        grid-column: 4 / 6;
-      
+            stroke-dasharray: 805px;
+            stroke-dashoffset: 805px;
+            animation: dash 3s ease-in-out forwards;
+        }
     }
 
     .nav {
         grid-row: 3 / 4;
-        grid-column: 3 / 4;
-        
+        grid-column: 1 / 4;
     }
+    
 }

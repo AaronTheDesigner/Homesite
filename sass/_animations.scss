@@ -1,0 +1,12 @@
+
+
+// Dash
+@keyframes dash {
+    from {
+        stroke-dashoffset: 805px;
+    }
+
+    to {
+        stroke-dashoffset: 0px;
+    }
+}
