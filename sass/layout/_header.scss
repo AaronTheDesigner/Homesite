@@ -1,42 +1,50 @@
-.hero {
-
-    width: 100%;
-    height: 100vh;
-    color: $color-grey-1;
+.header {
     background-color: $color-blue-3;
+    height: 100vh;
+    padding-top: 4rem;
 
     display: grid;
-    grid-template-rows: 4rem 1fr 4rem;
-    grid-template-columns: 6rem 1fr 6rem;
+    grid-template-rows: 1fr 210px repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
 
-    .login {
+    &__intro {
         grid-row: 1 / 2;
-        grid-column: 3 / 4;
-
-        position: relative;
-        font-size: 1.5rem;  
-
+        grid-column: 1 / 3;
+        color: rgba($color-blue-4, .2);
     }
 
-    
-
-    .title {
+    &__name {
         grid-row: 2 / 3;
-        grid-column: 1 / 4;
-        
-        .name {
-            width: 100%;
-            
+        grid-column: 1 / 7;
+        color: $color-brown-2;
+        text-align: center;
+        line-height: 1;
 
-            stroke-dasharray: 805px;
-            stroke-dashoffset: 805px;
-            animation: dash 3s ease-in-out forwards;
-        }
     }
 
-    .nav {
+    &__pro {
         grid-row: 3 / 4;
-        grid-column: 1 / 4;
+        grid-column: 2 / 4;
+        color: $color-blue-4;
+        text-align: center;
+        align-self: center;
+        
     }
-    
+
+    &__serv {
+        grid-row: 3 / 4;
+        grid-column: 4 / 6;
+        color: $color-red-5;
+        text-align: center;
+        align-self: center;
+    }
+
+    &__desc {
+        grid-row: 4 / 5;
+        grid-column: 2 / 6;
+        color: $color-grey-1;
+        display: flex;
+        
+
+    }
 }
