@@ -10,6 +10,9 @@ html {
   font-size: 62.5;
   font-family: 'Raleway', sans-serif; }
 
+body {
+  scroll-behavior: smooth; }
+
 .heading-top {
   font-family: 'Montserrat', sans-serif;
   font-size: 10rem; }
@@ -32,6 +35,73 @@ html {
     stroke-dashoffset: 805px; }
   to {
     stroke-dashoffset: 0px; } }
+
+@keyframes service-list {
+  0% {
+    top: 0px; }
+  12.66667% {
+    top: -2.95rem; }
+  16.66667% {
+    top: -2.95rem; }
+  29.33333% {
+    top: -5.9rem; }
+  33.33333% {
+    top: -5.9rem; }
+  46% {
+    top: -8.85rem; }
+  50% {
+    top: -8.85rem; }
+  62.66667% {
+    top: -11.8rem; }
+  66.66667% {
+    top: -11.8rem; }
+  79.33333% {
+    top: -14.75rem; }
+  83.33333% {
+    top: -14.75rem; }
+  96% {
+    top: -17.7rem; }
+  100% {
+    top: -17.7rem; } }
+
+@keyframes blink {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+@keyframes nav-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%); }
+  50% {
+    opacity: .5;
+    color: #8CC2D3; }
+  100% {
+    opacity: 1;
+    transform: translateY(0%); } }
+
+@keyframes reveal-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100%); }
+  to {
+    opacity: 1;
+    transform: translateY(0%); } }
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%); }
+  to {
+    opacity: 1;
+    transform: translateY(0%); } }
+
+@keyframes select {
+  from {
+    visibility: hidden; }
+  to {
+    visibility: visible; } }
 
 .margin-top-desk {
   margin-top: .5rem; }
@@ -79,66 +149,243 @@ html {
   .link-wrapper .hover-1:hover:before, .link-wrapper .hover-1:hover:after {
     transform: scaleX(1); }
 
+.arrow {
+  box-sizing: border-box;
+  height: 5vw;
+  width: 5vw;
+  border-style: solid;
+  border-color: #FF8787;
+  border-width: 0px 1px 1px 0px;
+  transform: rotate(45deg);
+  transition: border-width 150ms ease-in-out; }
+
+.arrow:hover {
+  border-bottom-width: 4px;
+  border-right-width: 4px; }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0e242d;
+  height: 100vh; }
+
 nav {
   background-color: #3A546B;
   border-bottom: 1px solid #D3B18C;
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  transform: translateY(-100%);
+  animation-name: nav-slide;
+  animation-delay: 4s;
+  animation-duration: .6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
   nav .nav-list {
     list-style-type: none;
     height: 5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-content: stretch;
-    flex-grow: 1; }
+    align-content: stretch; }
     nav .nav-list__item {
       display: flex;
       justify-content: center;
       align-items: center;
       align-content: stretch;
-      width: 100%; }
+      width: 100%;
+      background-image: linear-gradient(to bottom, transparent 50%, #D3B18C 50%);
+      background-size: 100% 200%;
+      transition: all .4s; }
+      nav .nav-list__item:hover {
+        background-position: 0 -100%; }
     nav .nav-list__link {
-      text-decoration: none;
-      color: #D3B18C;
       text-align: center;
       width: 100%;
-      padding: 25px 0 25px 0; }
+      padding: 25px 0 25px 0;
+      display: inline-block;
+      font-size: 1.75rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: #D3B18C;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all .4s; }
+      nav .nav-list__link:hover {
+        color: #3A546B; }
+
+.vert-nav {
+  position: fixed;
+  top: 40%;
+  right: 3%;
+  bottom: auto;
+  z-index: 10;
+  opacity: 0;
+  animation-name: reveal-right;
+  animation-delay: 4s;
+  animation-duration: .6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(200%); }
+  to {
+    opacity: 1;
+    transform: translateX(0%); } }
+  .vert-nav .vert-list {
+    list-style: none;
+    padding: 0; }
+  .vert-nav .vert-item {
+    padding: 10px 0; }
+  .vert-nav .vert-link {
+    display: inline-block;
+    color: #8CC2D3;
+    text-decoration: none;
+    font-size: 1em;
+    display: flex;
+    visibility: hidden;
+    animation-name: select;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
+  .vert-nav .vert-span {
+    display: inline-block;
+    position: relative; }
+    .vert-nav .vert-span--circle {
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      background-color: #8CC2D3;
+      transition: all .4s; }
+      .vert-nav .vert-span--circle:hover {
+        background-color: #FF6363; }
 
 .header {
   background-color: #3A546B;
   height: 100vh;
-  padding-top: 4rem;
+  padding-top: 5rem;
   display: grid;
   grid-template-rows: 1fr 210px repeat(4, 1fr);
   grid-template-columns: repeat(6, 1fr); }
   .header__intro {
     grid-row: 1 / 2;
     grid-column: 1 / 3;
-    color: rgba(140, 194, 211, 0.2); }
+    color: rgba(140, 194, 211, 0.7);
+    display: flex; }
+    .header__intro .elipse {
+      opacity: 0; }
+      .header__intro .elipse--1 {
+        animation-name: blink;
+        animation-duration: 1s;
+        animation-delay: 1s; }
+      .header__intro .elipse--2 {
+        animation-name: blink;
+        animation-duration: 1s;
+        animation-delay: 2s; }
+      .header__intro .elipse--3 {
+        animation-name: blink;
+        animation-duration: 1s;
+        animation-delay: 3s; }
+  .header .logo--svg {
+    stroke-dashoffset: 100px; }
   .header__name {
     grid-row: 2 / 3;
     grid-column: 1 / 7;
     color: #D3B18C;
     text-align: center;
-    line-height: 1; }
+    line-height: 1;
+    opacity: 0;
+    animation-name: reveal-down;
+    animation-delay: 4s;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
   .header__pro {
     grid-row: 3 / 4;
     grid-column: 2 / 4;
     color: #8CC2D3;
     text-align: center;
-    align-self: center; }
+    align-self: center;
+    opacity: 0;
+    animation-name: reveal-down;
+    animation-delay: 4s;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
   .header__serv {
     grid-row: 3 / 4;
     grid-column: 4 / 6;
     color: #FF8787;
     text-align: center;
-    align-self: center; }
+    align-self: center;
+    padding: 5px;
+    border: 1px #FF8787 solid;
+    opacity: 0;
+    animation-name: reveal-down;
+    animation-delay: 4s;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
+    .header__serv .aperture {
+      height: 3.1rem;
+      margin: 0;
+      overflow: hidden;
+      text-align: center; }
+    .header__serv .delta-text {
+      animation-delay: 5s;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-name: service-list;
+      animation-timing-function: ease;
+      color: #CCCCCC;
+      margin: 0px 0 0;
+      padding: 0; }
   .header__desc {
     grid-row: 4 / 5;
     grid-column: 2 / 6;
     color: #CCCCCC;
     display: flex; }
+    .header__desc--1 {
+      opacity: 0;
+      animation-name: reveal-up;
+      animation-delay: 4s;
+      animation-duration: .6s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%); }
+  to {
+    opacity: 1;
+    transform: translateY(0%); } }
+    .header__desc--2 {
+      opacity: 0;
+      animation-name: reveal-up;
+      animation-delay: 4s;
+      animation-duration: .6s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
+  .header__down {
+    grid-row: 5 / 6;
+    grid-column: 2 / 6;
+    justify-self: center;
+    align-self: end;
+    opacity: 0;
+    animation-name: reveal-up;
+    animation-delay: 4s;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
+    .header__down--arrow {
+      visibility: hidden;
+      animation-name: select;
+      animation-delay: 4s;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0, 1.26, 1, 1.08); }
 
 .banner {
   color: white;

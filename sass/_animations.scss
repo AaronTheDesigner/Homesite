@@ -10,3 +10,91 @@
         stroke-dashoffset: 0px;
     }
 }
+
+// Service List
+@keyframes service-list {
+    0% {
+      top: 0px;
+    }
+
+    @for $i from 1 through 6 {
+      #{$i * 100 / 6 - 4 + 0%} {
+        top: #{2.95rem * -$i};
+      }
+
+      #{$i * 100 / 6 + 0%} {
+        top: #{2.95rem * -$i};
+      }
+    }
+  }
+
+  // Blink
+@keyframes blink {
+  from {
+      opacity: 1
+  }
+
+  to {
+      opacity: 0
+  }
+}
+
+// Nav
+@keyframes nav-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  50% {
+    opacity: .5;
+    color: $color-blue-4;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+// Name
+@keyframes reveal-down {
+  from {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+
+}
+
+// Content
+@keyframes reveal-up {
+  from {
+      
+      opacity: 0;
+      transform: translateY(100%);
+  }
+
+  to {
+      
+      opacity: 1;
+      transform: translateY(0%);
+  }
+  
+}
+
+// Select
+
+@keyframes select {
+  from {
+      visibility: hidden;
+  }
+
+  to {
+      visibility: visible;
+  }
+}
